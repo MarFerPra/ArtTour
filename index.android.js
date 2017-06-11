@@ -1,33 +1,46 @@
-import React, { Component } from 'react';
+import Homepage from './app/components/Homepage';
+import Infopage from './app/components/Infopage';
+import Scanner from './app/components/Scanner';
+
+import React from 'react'
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  Linking
+  AppRegistry,
 } from 'react-native';
 
-import QRCodeScanner from 'react-native-qrcode-scanner';
+import { NativeRouter, Route, Link } from 'react-router-native';
 
-export default class ArtTour extends Component {
-  onRead(e) {
-    Linking.openURL(e.data).catch(err => console.error('An error occurred', err))
-  }
+import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import * as reducers from './app/reducers';
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <QRCodeScanner onRead={this.onRead.bind(this)}/>
-      </View>
-    );
-  }
-}
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const reducer = combineReducers(reducers);
+const store = createStoreWithMiddleware(reducer);
+
+const App = () => (
+  <NativeRouter>
+    <View style={styles.container}>
+      <Route exact path="/" component={Homepage}/>
+      <Route path="/info" component={Infopage}/>
+      <Route path="/scanner" component={Scanner}/>
+    </View>
+  </NativeRouter>
+)
+
+const ArtTour = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
+    padding: 10,
+  }
 });
 
 AppRegistry.registerComponent('ArtTour', () => ArtTour);
