@@ -9,7 +9,7 @@ import {
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 
-export default class qrscanner extends Component {
+export default class ArtTour extends Component {
   onRead(e) {
     Linking.openURL(e.data).catch(err => console.error('An error occurred', err))
   }
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('qrscanner', () => qrscanner);
+AppRegistry.registerComponent('ArtTour', () => ArtTour);
