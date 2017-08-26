@@ -1,4 +1,5 @@
 {
-  "name": "ArtTour",
-  "displayName": "ArtTour"
+  "expo": {
+    "sdkVersion": "20.0.0"
+  }
 }

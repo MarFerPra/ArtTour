@@ -1,3 +1,1 @@
-# ArtTour
-
-React Native app that displays information by scanning QR codes, to be used in museums or art galleries.
+Simple react native application, serves as an informative source for tours on museums/art galleries. Edit
