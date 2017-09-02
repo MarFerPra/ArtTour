@@ -7,6 +7,7 @@ import store from './app/store';
 import EntryCode from './app/components/EntryCode';
 import Information from './app/components/Information';
 import NavBar from './app/components/NavBar';
+import LandingPage from './app/components/LandingPage';
 
 console.disableYellowBox = true;
 

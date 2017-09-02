@@ -6,7 +6,7 @@ const mappedContent = (path, history) => {
     case '/':
       return {
         left: {},
-        center:  { text: 'ArtTour', style: { color: colors.white } },
+        center:  { text: 'ART TOUR', style: { color: colors.white } },
         right: {}
       };
     case '/code':
@@ -17,12 +17,7 @@ const mappedContent = (path, history) => {
       };
     case '/info':
     return {
-      left: {
-        icon: 'md-arrow-back',
-        color: colors.white,
-        type: 'ionicon',
-        onPress: () => history.push('/code')
-      },
+      left: {},
       center: { text: 'Piece Information', style: { color: colors.white } },
       right: {}
     };
