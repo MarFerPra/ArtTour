@@ -27,7 +27,7 @@ export const fetchInfoError = error => ({
 });
 
 const requestInfo = async (code) =>
-  fetch(`http://192.168.1.104:8080/info?code=${code}`)
+  fetch(`https://art-tour-server.herokuapp.com/info?code=${code}`)
     .then(res => res.json())
     .catch(error => {console.log('Network Error', error); return error;});
 
